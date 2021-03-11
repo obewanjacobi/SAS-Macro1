@@ -2,8 +2,17 @@
 * Creating and Using Macro Variables: Practice #2 *
 **************************************************/
 
-title "Listing of All Employees From mc1.newhires";
-proc print data=mc1.newhires;
-    var Employee_Name Employee_ID;
+%let lib=mc1;
+%let dsn=newhires;
+%let var=Employee;
+
+title "Listing of All &var.s From &lib..&dsn";
+proc print data=&lib..&dsn;
+    var &var._Name &var._ID;
 run;
 title;
+
+
+*
+This is a bit overkill...
+*;

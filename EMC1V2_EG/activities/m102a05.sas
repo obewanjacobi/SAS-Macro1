@@ -14,11 +14,16 @@ options symbolgen;
 %let hp=250;
 %let lib=SASHELP;
 
-title "&types with Horsepower > &hp";
-footnote "Data Source: SASHELP.CARS";
-proc print data=sashelp.cars;
+title "&type.s with Horsepower > &hp";
+footnote "Data Source: &lib..CARS";
+proc print data=&lib..cars;
     var Make Model MSRP Horsepower;
     where Type="&type" and Horsepower>&hp;
 run;
 title;footnote;
 options nosymbolgen;
+
+*
+I fixed it so that the errors no longer happen by adding an extra period 
+between lib and card in both he footnote and the proc print statement.
+*;

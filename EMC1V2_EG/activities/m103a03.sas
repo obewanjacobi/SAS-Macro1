@@ -9,10 +9,14 @@
 *     is Buenos Aires.                                    *;
 ***********************************************************;
 
-%let location=Buenos Aires, Argentina;
-%let city=%scan(&location, 1,,);
+*failed program;
+*%let location=Buenos Aires, Argentina;
+*%let city=%scan(&location, 1,,);
+*%put &=city;
+*ERROR: Macro function %SCAN has too many arguments.;
+
+*2);
+
+%let location=%str(Buenos Aires, Argentina);
+%let city=%scan(&location, 1, %str(,));
 %put &=city;
-
-
-
-

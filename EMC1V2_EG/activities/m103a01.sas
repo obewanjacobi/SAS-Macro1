@@ -12,3 +12,14 @@ title "upcase(&text)";
 proc print data=sashelp.class;
 run;
 title;
+
+*
+1) Upcase classlist appears above the table.
+
+2) (BELOW) Now it appears correctly as expected.
+*;
+
+title "%upcase(&text)";
+proc print data=sashelp.class;
+run;
+title;

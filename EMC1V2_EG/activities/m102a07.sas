@@ -20,10 +20,15 @@ run;
 %put _automatic_;
 
 title1 "Distribution of Average Miles Per Gallon";
-title2 "Data Source: <table>";
-footnote "Created on <date>";
+title2 "Data Source: &syslast";
+footnote "Created on &sysdate9";
 proc sgplot;
     histogram MPG_Average;
     density MPG_Average;
 run;
 title;footnote;
+
+*
+2) SYSDATE9 stores the date that the SAS session started and SYSLAST 
+   stores the name of the last SAS table created.
+*;

@@ -22,3 +22,15 @@ title "%propcase(&dt) Wheel Drive Cars";
 footnote "Listing from %scan(&syslast,2) Table";
 proc print data=&syslast;
 run;
+
+* 2) below;
+
+data cars_subset;
+    set sashelp.cars;
+    where upcase(DriveTrain)="%upcase(&dt)";
+run;
+
+title "%sysfunc(propcase(&dt)) Wheel Drive Cars";
+footnote "Listing from %scan(&syslast,2) Table";
+proc print data=&syslast;
+run;
