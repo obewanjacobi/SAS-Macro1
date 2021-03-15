@@ -11,6 +11,8 @@ run;
 data _null_;
     set sumdata;
     /*insert CALL SYMPUTX statements */
+	call symputx("avgcost", put(cost_mean, dollar22.2));
+	call symputx("medcost", put(cost_median, dollar22.2));
 run;
 
 %put &=avgcost &=medcost;

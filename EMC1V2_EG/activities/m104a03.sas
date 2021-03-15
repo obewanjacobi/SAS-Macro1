@@ -16,7 +16,7 @@
 ***********************************************************;
 
 options mcompilenote=all;
-%macro stormchart(basin, season, maxwind);
+%macro stormchart(basin=NA, season=2016, maxwind=20);
 title1 "Storm Frequency by Type";
 title2 "&basin Basin, &season Season, Max Wind > &maxwind MPH"; 
 proc sgplot data=mc1.storm_final;
@@ -25,3 +25,7 @@ proc sgplot data=mc1.storm_final;
 run;
 title;
 %mend stormchart;
+
+%stormchart()
+
+%stormchart(season = 2015, basin = EP)

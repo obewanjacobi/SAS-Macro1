@@ -19,3 +19,8 @@ run;
 
 %let dsn=sashelp.clas;
 %let obs=5;
+
+%printtable
+*
+Yes it tells me that the data that was attempted to be pulled does not exist.
+*;

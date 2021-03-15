@@ -20,6 +20,14 @@
 
 %let dsn=sashelp.cars;
 %let obs=5;
+options mcompilenote=all;
 
+%macro printtable;
 proc print data=&dsn(obs=&obs)
 run;
+%mend printtable;
+
+*
+It compiled without errors because the code itself is not being run,
+it is being saved to the macro printtable. 
+;

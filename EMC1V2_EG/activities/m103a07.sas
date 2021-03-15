@@ -13,4 +13,6 @@ select MinWind
 quit;
 
 %let cat=4;
-%put NOTE: Category &cat storms >= &wind&cat MPH;
+%put NOTE: Category &cat storms >= &&wind&cat MPH;
+
+*2) yep;

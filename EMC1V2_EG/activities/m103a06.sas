@@ -20,7 +20,7 @@ run;
 /* Complete the CALL SYMPUTX statement */
 data _null_;
 	set CarsStat;
-	call symputx(        );
+	call symputx("avgmsrp",put(Mean, dollar10.2));
 run;
 
 title "&make Cars";

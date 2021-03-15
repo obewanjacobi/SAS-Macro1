@@ -12,7 +12,7 @@
 *  3) Examine the report. Is the footnote correct?        *;
 ***********************************************************;
 
-%let make=Acura;
+%let make=Honda;
 
 data &make(keep=Make Model Type MSRP HybridFlag);
     set sashelp.cars end=lastrow;
@@ -35,3 +35,5 @@ proc print data=&make noobs;
 	var Model Type MSRP;
 run;
 title;footnote;
+
+*No the footnote is not correct, so this doesn't work;
