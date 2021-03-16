@@ -20,9 +20,13 @@ options mlogic mprint;
         var Make Model Type Origin 
             MSRP MPG_City MPG_Highway;
     run;
+%end;
 title;
 %mend allcylinders;
 
 options nomlogic nomprint;
 
+%allcylinders(3,12)
 
+/*If a cylinder number did not show up in the report, it's because it had
+  0 observations for that # cylinder vehicle.*/

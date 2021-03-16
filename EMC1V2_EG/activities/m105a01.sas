@@ -14,13 +14,23 @@
 *     the name?                                           *;
 ***********************************************************;
 
+options mlogic mautolocdisplay;
 %macro printtable(dsn=sashelp.cars,obs=5) /des='Print a table. Parms: DSN= OBS=';
     proc print data=&dsn(obs=&obs);
     run; 
 %mend printtable;
 
-proc catalog catalog=work.sasmacr;
+proc sql;
+select *
+    from dictionary.catalogs
+    where objname='PRINTTABLE';
+quit;
+
+proc catalog catalog;
     contents;
-    *contents out=macrolist(where=(name like '%TABLE%'));
+    contents out=macrolist(where=(name like '%TABLE%'));
 run;
 
+options nomlogic;
+/*This doesn't work because I don't know where Macros are saved
+  by default here at Humana.*/

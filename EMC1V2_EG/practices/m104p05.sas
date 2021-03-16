@@ -14,6 +14,11 @@
 
 %scope
 
+*
+In which symbol table were the macro variables created? 
+	Scope's local symbol table
+;
+
  /* Section 2: Macro variables created with SQL INTO */
 %macro scope;
 proc sql noprint;
@@ -27,6 +32,11 @@ quit;
 %mend scope;
 
 %scope
+
+*
+In which symbol table were the macro variables created? 
+	Scope's local symbol table
+;
 
  /* Section 3: Macro variables created with CALL SYMPUTX */
 %macro scope;
@@ -42,3 +52,12 @@ run;
 %scope
 
 %symdel stormtype1 stormtype2 stormtype3 stormtype4 stormtype5 num;
+
+*
+In which symbol table were the macro variables created? 
+	Global symbol table
+	The Scope macro doesn't accept parameters or include any %LET 
+	statements, so no local symbol table is created. Because there is 
+	no local symbol table, CALL SYMPUTX creates the macro variables in 
+	the global symbol table.
+;

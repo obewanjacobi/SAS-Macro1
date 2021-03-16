@@ -15,6 +15,16 @@ title;
 
 %stormchart(NA,2015)
 
+%macro stormchartrange(basin, start, stop);
+%local Season;
+    %do Season=&start %to &stop;
+        %stormchart(&basin, &season)
+    %end;
+%mend stormchartrange;
+
+%stormchartrange(EP,2011,2013)
+%stormchartrange(NA,2010,2016)
+
 options mcompilenote=none nomlogic nomprint;
 
 

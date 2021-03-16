@@ -24,3 +24,9 @@
 
 /* Check the value to X after execution */
 %put NOTE: &=X after TEST macro execution.;
+
+*
+X=OutsideMacro before TEST macro execution.
+X=InsideMacro during TEST macro execution.
+X=InsideMacro after TEST macro execution.
+;

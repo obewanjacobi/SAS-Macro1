@@ -20,6 +20,10 @@
 
  /* Define the macro test */
 %macro test(X);
+/*%global x;*/		/*So this is weird, you CANNOT comment this global*/
+					/*statement out with just a *, you must use the full*/
+					/*comment method with slashes, otherwise it will run*/
+					/*the global statement, which is stupid btw.*/
 %put NOTE: &=X during TEST macro execution.;
 %mend;
 
@@ -28,3 +32,14 @@
 
  /* Check the value to X after execution */
 %put NOTE: &=X after TEST macro execution.;
+
+*
+2)  X=OutsideMacro before TEST macro execution.
+	X=InsideMacro during TEST macro execution.
+	X=OutsideMacro after TEST macro execution.
+
+3)	it's local
+
+4)	No: ERROR: Attempt to %GLOBAL a name (X) which exists in 
+	a local environment.
+;
